@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Selaimen otsikko</title>
+    <style>
+      body {
+        background-image: url("https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+	h1{
+	  color:pink;
+	  font-family: "impact", sans-serif
+	  
+	}
+
+      form {
+        margin-bottom: 20px;
+      }
+	.lef-img{
+	position: absolute;
+	left: 20px;
+	top: 50%
+	height: auto;
+	}
+
+	.rig-img{
+	position: absolute;
+	right: 20px;
+	top: 50%
+	height: auto;
+	}
+	
+
+    </style>
+  </head>
+  <body>
+	<img src="https://media1.tenor.com/m/UDqcLgVD0NUAAAAd/black-guy-steaming.gif" class="lef-img">
+	<img src="https://media1.tenor.com/m/UDqcLgVD0NUAAAAd/black-guy-steaming.gif" class="rig-img">
+
+
+  <h1>JAUHON HUVA SIVU</h1>
+    <!-- Laskuri -->
+    <form name="numerot">
+      <h2>Kertolaskuri</h2>
+      <h5>(läbäl dehdy mage XDD)</h5>
+      <label for="luku1">Anna luku:</label><br>
+      <input type="number" id="luku1" name="luku1"><br><br>
+      <label for="luku2">Anna toinen luku:</label><br>
+      <input type="number" id="luku2" name="luku2"><br><br>
+      <button type="button" onclick="Tulosta()">Kerro luvut</button>
+    </form>
+    <p id="tulostaTahan"></p>
+
+    <!-- Kirjautuminen -->
+    <form name="tiedot">
+      <h2>Kirjaudu sisään jos tiedät salasanan</h2>
+      <label for="ssana">Salasana:</label><br>
+      <input type="password" id="ssana" name="ssana"><br><br>
+      <button type="button" onclick="Kirjaudu()">Kirjaudu sisään</button>
+      <br><br>
+      <input type="checkbox" onclick="naytasalasana()">Näytä salasana
+    </form>
+    <p id="here"></p>
+
+
+    <script>
+      function Tulosta() {
+        var numero1 = document.numerot.luku1.value;
+        var numero2 = document.numerot.luku2.value;
+        var tulo = Number(numero1) * Number(numero2);
+        document.getElementById("tulostaTahan").innerHTML =
+          "Annoit luvut " + numero1 + " ja " + numero2 + "<br>" +
+          "Niiden tulo on " + tulo;
+      }
+
+      function Kirjaudu() {
+        var salasana = document.tiedot.ssana.value;
+        if (salasana == "salasana") {
+          document.getElementById("here").innerHTML = "Sisään päästy";
+        } else {
+          document.getElementById("here").innerHTML = "Väärä salasana";
+        }
+      }
+
+      function naytasalasana() {
+        var kentta = document.getElementById("ssana");
+        if (kentta.type === "password") {
+          kentta.type = "text";
+        } else {
+          kentta.type = "password";
+        }
+      }
+    </script>
+  </body>
+</html>
